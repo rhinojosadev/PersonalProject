@@ -1,28 +1,24 @@
-# Personalproject
+## NPM Scripts 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+npm run start = Creates a new dev server on http://localhost:4200/ and also verifies lint. </br>
+npm run build = Creates the production files. It creates a new folder named dist. </br>
+npm run test  = Executes all the test cases. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Known issues. (Research)
 
-## Code scaffolding
+1. This project was made on angular-cli 1.6.5 and modified certain folders and files.
+   There is a bug that it doesn't shows the sourcemaps for sass files (it might be needed to use
+   ng-eject and modify the webpack file to use a different plugin for sass).
+   
+   https://github.com/angular/angular-cli/issues/9099
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+2. There is no official support for pug on angular-cli but there is a workaround 
+  
+  https://github.com/angular/angular-cli/issues/1886
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+  Credits to:
+  https://medium.com/@MarkPieszak/using-pug-or-jade-templates-with-the-angular-cli-9e37334db5bc
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
