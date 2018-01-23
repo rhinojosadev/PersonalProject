@@ -1,0 +1,74 @@
+@mixin vertical-align($position) {
+    position:$position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  @mixin all-transition($time)
+  {
+      transition: all $time;
+      -webkit-transition: all $time;
+  }
+  
+  .main-menu {
+  
+      font-weight: 100;
+      background: #efefef;
+      transform: translate3d(-130px, 0, 0);
+      width: 180px;
+      height: 30%;
+      left: 0px;
+      position: fixed;
+      z-index: 100;
+      -webkit-box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
+      box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
+      @include all-transition(0.3s);
+      color: #222;
+  
+      &:hover, &:focus
+      {
+          transform: translate3d(1px, 0, 0);
+          animation-timing-function: 1s ease-in;
+      }
+      &__title
+      {
+          top:50%;
+          @include vertical-align(absolute);
+          transform: rotate(270deg);
+          right: 10px;
+          font-weight: 800;
+          font-size: 15px;
+  
+      }
+      &__navigation
+      {
+          @include vertical-align(absolute);
+          font-weight: 100;
+  
+          li
+          {
+                  padding-bottom: 30px;
+                  list-style-type: none;
+  
+                  a
+                  {
+                      display: block;
+                      text-decoration: none;
+                      color: inherit;
+                      @include all-transition(0.3s);
+  
+                      &:hover
+                      {
+                          color: #aaa;
+                      }
+                  }
+          }
+  
+  
+      }
+  
+  
+  }
+  
