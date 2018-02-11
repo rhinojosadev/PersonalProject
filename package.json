@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prestart": "ng lint",
     "start": "ng serve  -ec -sm",
     "build": "ng build",
     "test": "ng test",
@@ -26,6 +25,7 @@
     "lodash": "^4.17.4",
     "rxjs": "^5.4.2",
     "underscore": "^1.8.3",
+    "xml2js": "^0.4.19",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -36,6 +36,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/lodash": "^4.14.93",
     "@types/node": "~6.0.60",
+    "@types/xml2js": "^0.4.2",
     "apply-loader": "^2.0.0",
     "autoprefixer": "^7.2.3",
     "bootstrap": "4.0.0",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-movie',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: BookService ) { }
 
   ngOnInit() {
+    this.service.getBooks()
+    .subscribe(response => {
+        console.log(response);
+    }, error => {
+      console.log('Unexpected error ocurred');
+    });
   }
 
 }

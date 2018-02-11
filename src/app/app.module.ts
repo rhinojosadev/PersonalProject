@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MovieComponent } from './movie/movie.component';
 import { BookComponent } from './book/book.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BookService } from './services/book.service';
 
 
 
@@ -20,9 +22,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: 
+  [
+    BookService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
