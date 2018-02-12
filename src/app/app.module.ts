@@ -9,6 +9,7 @@ import { MovieComponent } from './movie/movie.component';
 import { BookComponent } from './book/book.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BookService } from './services/book.service';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -19,6 +20,7 @@ import { BookService } from './services/book.service';
     MovieComponent,
     BookComponent,
     NotFoundComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
