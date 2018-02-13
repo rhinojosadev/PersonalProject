@@ -1,6 +1,7 @@
 import { BookService } from './../services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { xml2json } from 'xml-js';
+import { LocalstorageService } from '../services/localstorage.service';
 
 @Component({
   selector: 'app-book',
@@ -12,21 +13,28 @@ export class BookComponent implements OnInit {
   books;
 
 
-  constructor(private service: BookService) { }
+  constructor(private service: BookService, private localStorage: LocalstorageService) { }
 
   
   ngOnInit() {
     this.getBookList();
   }
 
-   getBookList() {
-    this.service.getBooks()
-    .subscribe(response => {
+   getBookList() {  
+     console.log(this.localStorage.getBooksLocal());
+   if(this.localStorage.getBooksLocal() !== null) {
+     this.books = this.localStorage.getBooksLocal();
+   } else {
+    this.service
+      .getBooks()
+      .subscribe(response => {
         const xml = response.text();
-        this.books = JSON.parse(xml2json(xml));
-    }, error => {
-      console.log('Unexpected error ocurred');
-    });
+        this.books = JSON.parse(xml2json(xml));   
+        this.localStorage.insertBooksLocal( JSON.stringify(this.books));
+      }, error => {
+        console.log('Unexpected error ocurred');
+      });
+   }
   }
 
 }

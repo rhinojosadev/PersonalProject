@@ -10,6 +10,7 @@ import { BookComponent } from './book/book.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BookService } from './services/book.service';
 import { CardComponent } from './card/card.component';
+import { LocalstorageService } from './services/localstorage.service';
 
 
 
@@ -29,7 +30,8 @@ import { CardComponent } from './card/card.component';
   ],
   providers: 
   [
-    BookService
+    BookService,
+    LocalstorageService
   ],
   bootstrap: [AppComponent]
 })
