@@ -1,2 +1,4 @@
-li("*ngFor"="let book of books?.elements[0].elements[1].elements")
-   span {{ book.elements[5].elements[0].text }}
+.container  
+    .row
+        .col-3("*ngFor"="let book of books?.elements[0].elements[1].elements")
+            app-card([title] = "book.elements[5].elements[0].text", [imageUrl] = "book.elements[7].elements[0].text")

@@ -21,20 +21,19 @@ export class BookComponent implements OnInit {
   }
 
    getBookList() {  
-     console.log(this.localStorage.getBooksLocal());
-   if(this.localStorage.getBooksLocal() !== null) {
-     this.books = this.localStorage.getBooksLocal();
-   } else {
-    this.service
-      .getBooks()
-      .subscribe(response => {
-        const xml = response.text();
-        this.books = JSON.parse(xml2json(xml));   
-        this.localStorage.insertBooksLocal( JSON.stringify(this.books));
-      }, error => {
-        console.log('Unexpected error ocurred');
-      });
-   }
+    if(this.localStorage.getBooksLocal() !== null) {
+      this.books = this.localStorage.getBooksLocal();
+    } else {
+      this.service
+        .getBooks()
+        .subscribe(response => {
+          const xml = response.text();
+          this.books = JSON.parse(xml2json(xml));   
+          this.localStorage.insertBooksLocal( JSON.stringify(this.books));
+        }, error => {
+          console.log('Unexpected error ocurred');
+        });
+    }
   }
 
 }
