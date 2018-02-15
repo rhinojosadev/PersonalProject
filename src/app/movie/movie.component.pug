@@ -1,1 +1,4 @@
-p Here is the movie page
+.container  
+    .row
+        .col-3("*ngFor"="let movie of movies?.Search")
+            app-card([title] = "movie.Title", [imageUrl] = "movie.Poster")

@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BookService } from './services/book.service';
 import { CardComponent } from './card/card.component';
 import { LocalstorageService } from './services/localstorage.service';
+import { MoviesService } from './services/movies.service';
 
 
 
@@ -31,6 +32,7 @@ import { LocalstorageService } from './services/localstorage.service';
   providers:
   [
     BookService,
+    MoviesService,
     LocalstorageService
   ],
   bootstrap: [AppComponent]
