@@ -4,12 +4,12 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BookService {
-  
-  private url = "https://www.goodreads.com";
-  private key = "YOUR KEY HERE";
-  private userId = "77323311";
 
-  private urlGetBook = "/review/list/"+this.userId+".xml?key="
+  private url = 'https://www.goodreads.com';
+  private key = 'YOUR KEY HERE';
+  private userId = '77323311';
+
+  private urlGetBook = '/review/list/' + this.userId + '.xml?key=';
 
 
   constructor(private http: Http) { }

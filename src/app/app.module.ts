@@ -28,7 +28,7 @@ import { LocalstorageService } from './services/localstorage.service';
     AppRoutingModule,
     HttpModule
   ],
-  providers: 
+  providers:
   [
     BookService,
     LocalstorageService

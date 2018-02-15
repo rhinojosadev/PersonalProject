@@ -12,23 +12,21 @@ export class BookComponent implements OnInit {
 
   books;
 
-
   constructor(private service: BookService, private localStorage: LocalstorageService) { }
 
-  
   ngOnInit() {
     this.getBookList();
   }
 
-   getBookList() {  
-    if(this.localStorage.getBooksLocal() !== null) {
+   getBookList() {
+    if (this.localStorage.getBooksLocal() !== null) {
       this.books = this.localStorage.getBooksLocal();
     } else {
       this.service
         .getBooks()
         .subscribe(response => {
           const xml = response.text();
-          this.books = JSON.parse(xml2json(xml));   
+          this.books = JSON.parse(xml2json(xml));
           this.localStorage.insertBooksLocal( JSON.stringify(this.books));
         }, error => {
           console.log('Unexpected error ocurred');

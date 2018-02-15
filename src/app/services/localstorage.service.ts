@@ -14,11 +14,11 @@ export class LocalstorageService {
   }
 
   getBooksLocal() {
-   return JSON.parse(localStorage.getItem("books"));
+   return JSON.parse(localStorage.getItem('books'));
   }
 
   getMoviesLocal() {
-    return JSON.parse(localStorage.getItem("movies"));
+    return JSON.parse(localStorage.getItem('movies'));
   }
 
 }
