@@ -1,3 +1,4 @@
+import { CommentSectionComponent } from './comment-section/comment-section.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const appRoutes: Routes = [
     { path: 'movies',  component: MovieComponent },
     { path: 'books',     component: BookComponent },
+    { path: 'comments/:id',     component: CommentSectionComponent },
     { path: '',   redirectTo: '/movies', pathMatch: 'full' },
     { path: '**', component: NotFoundComponent }
   ];

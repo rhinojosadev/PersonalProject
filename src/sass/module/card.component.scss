@@ -1,18 +1,19 @@
 .card-holder {
     height: 344px;
     width: 255px;
-    margin: 20px;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin: 40px 20px 40px 20px;
 
     & .card-holder__rate{
         padding-top: 10px;
-        color:white;
+        color:#E0A53D;
 
         i {
             font-size: 2em;
             padding-right: 2px;
         }
+    }
+    img {
+        cursor: pointer;
     }
     p {
         font-size: 16px;
