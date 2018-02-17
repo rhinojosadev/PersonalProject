@@ -1,3 +1,7 @@
-p {{ title }}
-img(src="{{imageUrl}}")
+.card-holder.text-center 
+    img(class="rounded" src="{{imageUrl}}")
+    .card-holder__rate
+        each val in [1, 2, 3, 4, 5]
+            i(class="fa fa-star-o fa-3")
+    p {{ title }}
 br

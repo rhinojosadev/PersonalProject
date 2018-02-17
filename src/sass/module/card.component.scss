@@ -1,3 +1,24 @@
-p {
-    font-size: 10px;
+.card-holder {
+    height: 344px;
+    width: 255px;
+    margin: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
+    & .card-holder__rate{
+        padding-top: 10px;
+        color:white;
+
+        i {
+            font-size: 2em;
+            padding-right: 2px;
+        }
+    }
+    p {
+        font-size: 16px;
+        padding-top: 10px;
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+    }
 }
