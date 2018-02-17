@@ -11,9 +11,10 @@ export class CardComponent {
     @Input()  title: string;
     @Input()  imageUrl: string;
 
+
     constructor(private router: Router) {}
 
     goToCommentSection() {
-      this.router.navigate(['comments/' + this.id]);
+      this.router.navigate([this.router.url + '/comments/' + this.id]);
     }
 }

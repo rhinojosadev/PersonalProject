@@ -8,9 +8,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const appRoutes: Routes = [
-    { path: 'movies',  component: MovieComponent },
-    { path: 'books',     component: BookComponent },
-    { path: 'comments/:id',     component: CommentSectionComponent },
+    { path: 'movies',
+         children: [
+          { path: '', component: MovieComponent},
+          { path: 'comments/:id', component: CommentSectionComponent },
+         ]
+    },
+    { path: 'books',
+        children: [
+          { path: '', component: BookComponent},
+          { path: 'comments/:id', component: CommentSectionComponent },
+        ]
+    },
     { path: '',   redirectTo: '/movies', pathMatch: 'full' },
     { path: '**', component: NotFoundComponent }
   ];
