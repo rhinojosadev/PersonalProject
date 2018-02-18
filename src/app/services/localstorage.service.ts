@@ -13,6 +13,14 @@ export class LocalstorageService {
     localStorage.setItem('movies', value);
   }
 
+  insertIndividualMovie(value, id) {
+    localStorage.setItem(id, value);
+  }
+
+  getMovieLocalById(id) {
+    return JSON.parse(localStorage.getItem(id));
+  }
+
   getBooksLocal() {
    return JSON.parse(localStorage.getItem('books'));
   }

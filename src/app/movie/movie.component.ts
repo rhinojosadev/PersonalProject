@@ -20,7 +20,6 @@ export class MovieComponent implements OnInit {
   getMovieList() {
     if (this.localStorage.getMoviesLocal() !== null) {
       this.movies = this.localStorage.getMoviesLocal();
-      console.log(this.movies);
     } else {
       this.service
           .getMovies()

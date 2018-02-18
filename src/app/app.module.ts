@@ -13,7 +13,8 @@ import { CardComponent } from './card/card.component';
 import { LocalstorageService } from './services/localstorage.service';
 import { MoviesService } from './services/movies.service';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
-
+import { CommentMoviesComponent } from './comment-movies/comment-movies.component';
+import { CommentBooksComponent } from './comment-books/comment-books.component';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import { CommentSectionComponent } from './comment-section/comment-section.compo
     NotFoundComponent,
     CardComponent,
     CommentSectionComponent,
+    CommentMoviesComponent,
+    CommentBooksComponent
   ],
   imports: [
     BrowserModule,
