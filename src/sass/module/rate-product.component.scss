@@ -1,0 +1,25 @@
+.rate-product {
+    background-color: #EAEAEA;
+    padding: 10px;
+    border-radius: 10px;
+
+    &__title {
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+
+    &__stars {
+        font-size: 1.8em;
+        color: #E0A53D;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color:#000;
+        margin: 0px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}

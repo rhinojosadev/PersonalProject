@@ -15,6 +15,8 @@ import { MoviesService } from './services/movies.service';
 import { CommentMoviesComponent } from './comment-movies/comment-movies.component';
 import { CommentBooksComponent } from './comment-books/comment-books.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RateProductComponent } from './rate-product/rate-product.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NotFoundComponent,
     CardComponent,
     CommentMoviesComponent,
-    CommentBooksComponent
+    CommentBooksComponent,
+    RateProductComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       outerStrokeWidth: 18,
       outerStrokeColor: '#FAE906',
       animationDuration: 300,
-    })
+    }),
+    NgbModule.forRoot()
   ],
   providers:
   [

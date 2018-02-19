@@ -11,12 +11,18 @@ import { LocalstorageService } from '../services/localstorage.service';
 export class CommentMoviesComponent implements OnInit {
 
   movie;
+  newPost: boolean;
 
   constructor(private movieService: MoviesService, private localStorage: LocalstorageService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id   = this.route.snapshot.paramMap.get('id');
     this.getSingleMovie(id);
+    this.newPost = false;
+  }
+
+  onClickNewPost() {
+    this.newPost = true;
   }
 
   getSingleMovie(id) {

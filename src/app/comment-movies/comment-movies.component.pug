@@ -25,3 +25,12 @@
                                 strong Duration:
                             .col-lg-8.text-right  
                                 p {{movie.Runtime}}
+       
+        .row(*ngIf="!newPost")
+            .col-lg-3
+            .col-lg-9
+                button(class="btn btn-primary" '(click)'= 'onClickNewPost()') Post review
+        .row(*ngIf="newPost")
+            .col-lg-3
+            .col-lg-9
+                app-rate-product([title]="movie.Title")
