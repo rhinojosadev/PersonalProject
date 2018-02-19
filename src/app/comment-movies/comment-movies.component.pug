@@ -1,0 +1,27 @@
+.comment-movies
+    .container  
+        .row
+            .col-lg-3
+                img(src="{{movie.Poster}}")
+            .col-lg-9
+                h2 {{movie.Title}} ({{movie.Year}})
+                p {{movie.Plot}}
+                .row
+                    .col-lg-6.text-center
+                        circle-progress([percent]="85")
+                    .col-lg-6.comment-movies__info
+                        .row
+                            .col-lg-2
+                                strong Genre:
+                            .col-lg-10.text-right  
+                                p {{movie.Genre}}
+                        .row
+                            .col-lg-4
+                                strong Release Date:
+                            .col-lg-8.text-right  
+                                p {{movie.Released}}
+                        .row
+                            .col-lg-4
+                                strong Duration:
+                            .col-lg-8.text-right  
+                                p {{movie.Runtime}}

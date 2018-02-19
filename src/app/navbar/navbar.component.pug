@@ -1,7 +1,10 @@
 .main-menu
-  .main-menu__title MENU
+  .main-menu__title 
+      p MENU
   ul.main-menu__navigation
-    li
+    li(routerLink='/movies')
+      i(class="fa fa-film" aria-hidden="true")
       a(routerLink='/movies') MOVIES
-    li 
+    li(routerLink='/books')
+      i(class="fa fa-book" aria-hidden="true")
       a(routerLink='/books') BOOKS

@@ -6,8 +6,7 @@
     transform: translateY(-50%);
   }
   
-  @mixin all-transition($time)
-  {
+  @mixin all-transition($time) {
       transition: all $time;
       -webkit-transition: all $time;
   }
@@ -15,7 +14,7 @@
   .main-menu {
   
       font-weight: 100;
-      background: #ad4b24;
+      background: #FAE906;
       transform: translate3d(-130px, 0, 0);
       border-top-right-radius: 50px;
       border-bottom-right-radius: 50px;
@@ -27,13 +26,21 @@
       -webkit-box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
       box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
       @include all-transition(0.3s);
-      color: #222;
+
+      & p {
+        color: #373737;
+      }
   
       &:hover, &:focus
       {
           transform: translate3d(1px, 0, 0);
           animation-timing-function: 1s ease-in;
+
+          & p {
+              display: none;
+          } 
       }
+
       &__title
       {
           top:50%;
@@ -48,29 +55,44 @@
       {
           @include vertical-align(absolute);
           font-weight: 100;
+          width: 100%;
+          padding: 0;
+
+          i {
+              display: inline-block;
+              font-size: 2em;
+          }
   
           li
           {
-                  padding-bottom: 30px;
-                  list-style-type: none;
-  
-                  a
-                  {
-                      display: block;
-                      text-decoration: none;
-                      color: inherit;
-                      @include all-transition(0.3s);
-  
-                      &:hover
-                      {
-                          color: #aaa;
-                      }
-                  }
+            padding: 20px 0 20px 10px;
+            list-style-type: none;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover
+            {
+                background-color: #aaa;
+                cursor: pointer;
+            }
+
+            a
+            {
+                padding-left: 30px;
+                display: inline-block;;
+                text-decoration: none;
+                color: inherit;
+                @include all-transition(0.3s);
+            }
           }
-  
-  
-      }
-  
-  
+
+          li:nth-child(2)   {
+            & a {
+                padding-left: 35px;
+            }
+          }       
+      }  
   }
   

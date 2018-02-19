@@ -12,9 +12,9 @@ import { BookService } from './services/book.service';
 import { CardComponent } from './card/card.component';
 import { LocalstorageService } from './services/localstorage.service';
 import { MoviesService } from './services/movies.service';
-import { CommentSectionComponent } from './comment-section/comment-section.component';
 import { CommentMoviesComponent } from './comment-movies/comment-movies.component';
 import { CommentBooksComponent } from './comment-books/comment-books.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 @NgModule({
@@ -25,14 +25,26 @@ import { CommentBooksComponent } from './comment-books/comment-books.component';
     BookComponent,
     NotFoundComponent,
     CardComponent,
-    CommentSectionComponent,
     CommentMoviesComponent,
     CommentBooksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    NgCircleProgressModule.forRoot({
+      showInnerStroke: false,
+      showSubtitle: false,
+      showUnits: false,
+      unitsColor: '#fff',
+      titleColor: '#fff',
+      subtitleColor: '#fff',
+      unitsFontSize: '16',
+      radius: 80,
+      outerStrokeWidth: 18,
+      outerStrokeColor: '#FAE906',
+      animationDuration: 300,
+    })
   ],
   providers:
   [

@@ -1,4 +1,3 @@
-import { CommentSectionComponent } from './comment-section/comment-section.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
