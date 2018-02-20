@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { RateProduct } from './rate-product';
 
 @Component({
   selector: 'app-rate-product',
@@ -8,10 +9,27 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RateProductComponent implements OnInit {
 
   @Input() title: string;
+  @Input() type: string;
+  @Output() onSubmitReviewMovie: EventEmitter<RateProduct> = new EventEmitter<RateProduct>();
+  onSubmitReviewBook: EventEmitter<RateProduct> = new EventEmitter<RateProduct>();
+  model = new RateProduct();
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this);
+  }
+
+  onSubmitRate() {
+     switch (this.type) {
+       case 'movie':
+          this.onSubmitReviewMovie.emit(this.model);
+       break;
+       case 'book':
+          this.onSubmitReviewBook.emit(this.model);
+       break;
+     }
+
   }
 
 }

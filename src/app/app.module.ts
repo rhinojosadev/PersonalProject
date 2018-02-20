@@ -1,6 +1,7 @@
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { RateProductComponent } from './rate-product/rate-product.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpModule,
     NgCircleProgressModule.forRoot({
@@ -48,7 +50,7 @@ import { RateProductComponent } from './rate-product/rate-product.component';
       outerStrokeColor: '#FAE906',
       animationDuration: 300,
     }),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   providers:
   [

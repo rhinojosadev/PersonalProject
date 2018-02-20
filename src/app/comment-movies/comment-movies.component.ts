@@ -12,6 +12,7 @@ export class CommentMoviesComponent implements OnInit {
 
   movie;
   newPost: boolean;
+  type = 'movie';
 
   constructor(private movieService: MoviesService, private localStorage: LocalstorageService, private route: ActivatedRoute) { }
 
@@ -23,6 +24,11 @@ export class CommentMoviesComponent implements OnInit {
 
   onClickNewPost() {
     this.newPost = true;
+  }
+
+  // TODO make call to API to save data
+  saveMovieComments(model) {
+    console.log(model);
   }
 
   getSingleMovie(id) {
