@@ -33,4 +33,4 @@
         .row(*ngIf="newPost")
             .col-lg-3
             .col-lg-9
-                app-rate-product([title]="movie.Title", [type]="type", '(onSubmitReviewMovie)'='saveMovieComments($event)')
+                app-post-review([title]="movie.Title", [type]="type", '(onSubmitReviewMovie)'='saveMovieComments($event)')

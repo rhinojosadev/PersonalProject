@@ -20,7 +20,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { RateProductComponent } from './rate-product/rate-product.component';
+import { PostReviewComponent } from './post-review/post-review.component';
 import { FirebaseService } from './services/firebase.service';
 
 
@@ -34,7 +34,7 @@ import { FirebaseService } from './services/firebase.service';
     CardComponent,
     CommentMoviesComponent,
     CommentBooksComponent,
-    RateProductComponent
+    PostReviewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-export class RateProduct {
+export class PostReview {
     constructor() {}
 
     public title: string;

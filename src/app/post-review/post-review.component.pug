@@ -1,9 +1,9 @@
-form(class="rate-product" #rateForm="ngForm")
+form(class="post-review" #rateForm="ngForm")
     h2(class="text-center") Tell us your thoughts about 
-    h5(class="rate-product__title text-center") {{title}}
+    h5(class="post-review__title text-center") {{title}}
     p(class="text-center") Vote on a scale of 1-10 (left to right).
     .text-center
-        ngb-rating(class="rate-product__stars" '[(ngModel)]'="model.rate"  name="rate")
+        ngb-rating(class="post-review_stars" '[(ngModel)]'="model.rate"  name="rate")
     .form-row
         .form-group.col-lg-6
             label(for="user_name") Name:
@@ -28,4 +28,4 @@ form(class="rate-product" #rateForm="ngForm")
 
     br
     .text-center
-        button(type="submit" class="btn btn-primary" '(click)'="onSubmitRate(); rateForm.reset()") Submit Review
+        button(type="submit" class="btn btn-primary" '(click)'="onSubmitReview(); rateForm.reset()") Submit Review
