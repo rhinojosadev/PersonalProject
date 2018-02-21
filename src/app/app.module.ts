@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,10 @@ import { CommentMoviesComponent } from './comment-movies/comment-movies.componen
 import { CommentBooksComponent } from './comment-books/comment-books.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { RateProductComponent } from './rate-product/rate-product.component';
+import { FirebaseService } from './services/firebase.service';
 
 
 @NgModule({
@@ -37,6 +41,8 @@ import { RateProductComponent } from './rate-product/rate-product.component';
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     NgCircleProgressModule.forRoot({
       showInnerStroke: false,
       showSubtitle: false,
@@ -56,7 +62,8 @@ import { RateProductComponent } from './rate-product/rate-product.component';
   [
     BookService,
     MoviesService,
-    LocalstorageService
+    LocalstorageService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })

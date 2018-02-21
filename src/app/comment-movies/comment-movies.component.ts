@@ -1,3 +1,4 @@
+import { FirebaseService } from './../services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
@@ -14,7 +15,10 @@ export class CommentMoviesComponent implements OnInit {
   newPost: boolean;
   type = 'movie';
 
-  constructor(private movieService: MoviesService, private localStorage: LocalstorageService, private route: ActivatedRoute) { }
+  constructor(private movieService: MoviesService, private localStorage: LocalstorageService, private route: ActivatedRoute,
+              private firebaseService: FirebaseService) {
+               firebaseService.getMoviesComments().subscribe( result => {  console.log(result); });
+              }
 
   ngOnInit() {
     const id   = this.route.snapshot.paramMap.get('id');
@@ -26,9 +30,9 @@ export class CommentMoviesComponent implements OnInit {
     this.newPost = true;
   }
 
-  // TODO make call to API to save data
   saveMovieComments(model) {
-    console.log(model);
+    this.firebaseService.insertMovieComment(model);
+    this.newPost = false;
   }
 
   getSingleMovie(id) {

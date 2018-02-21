@@ -5,5 +5,5 @@ export class RateProduct {
     public username: string;
     public rate: number;
     public description: string;
-    public isRecommended: boolean;
+    public isrecommended: boolean;
 }

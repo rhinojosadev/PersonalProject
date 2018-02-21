@@ -16,9 +16,7 @@ export class RateProductComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this);
-  }
+  ngOnInit() {}
 
   onSubmitRate() {
      switch (this.type) {
