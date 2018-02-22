@@ -25,7 +25,15 @@
                                 strong Duration:
                             .col-lg-8.text-right  
                                 p {{movie.Runtime}}
-       
+        .row
+            .col-lg-3
+            .col-lg-9(class="text-center")
+                h3 General Reviews
+                ngb-rating( class="comment-movies__general-rate" '[readonly]'="true") 
+        .row(*ngFor="let viewPost of posts")
+            .col-lg-3
+            .col-lg-9
+               app-post-view([post] = "viewPost")
         .row(*ngIf="!newPost")
             .col-lg-3
             .col-lg-9
@@ -33,4 +41,4 @@
         .row(*ngIf="newPost")
             .col-lg-3
             .col-lg-9
-                app-post-review([title]="movie.Title", [type]="type", '(onSubmitReviewMovie)'='saveMovieComments($event)')
+                app-post-review([title]="movie.Title", [type]="type", [id] ="id" '(onSubmitReviewMovie)'='saveMovieComments($event)')

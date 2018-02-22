@@ -22,6 +22,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PostReviewComponent } from './post-review/post-review.component';
 import { FirebaseService } from './services/firebase.service';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { PostViewComponent } from './post-view/post-view.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { FirebaseService } from './services/firebase.service';
     CardComponent,
     CommentMoviesComponent,
     CommentBooksComponent,
-    PostReviewComponent
+    PostReviewComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { FirebaseService } from './services/firebase.service';
     BookService,
     MoviesService,
     LocalstorageService,
-    FirebaseService
+    FirebaseService,
+    NgbRatingConfig
   ],
   bootstrap: [AppComponent]
 })

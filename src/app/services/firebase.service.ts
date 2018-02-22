@@ -10,16 +10,26 @@ export class FirebaseService {
   private moviesDbContext = this.db.list('moviesComments');
   private booksDbContext  = this.db.list('booksComments');
 
-  getMoviesComments() {
-    return this.moviesDbContext.valueChanges();
-  }
 
-  getBooksComments() {
-    return this.booksDbContext.valueChanges();
-  }
-
-  insertMovieComment(value: JSON) {
+  insertMovieComment(value: string) {
     return this.moviesDbContext.push(value);
+  }
+
+  selectMovieCommentsById(id: string) {
+    return this.db.list('/moviesComments', ref => ref.orderByChild('id').equalTo(id)).valueChanges();
+  }
+
+  deleteMovieCommentById(id: string) {
+    this.db.list('/moviesComments', ref => ref.orderByChild('id').equalTo(id)).remove();
+  }
+
+  updateMovieCommentById(id: string, value: string) {
+    this.deleteMovieCommentById(id);
+    this.insertMovieComment(value);
+  }
+
+  selectBooksCommentById() {
+    return this.booksDbContext.valueChanges();
   }
 
 }

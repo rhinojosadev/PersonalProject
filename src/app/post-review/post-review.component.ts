@@ -10,13 +10,14 @@ export class PostReviewComponent implements OnInit {
 
   @Input() title: string;
   @Input() type: string;
+  @Input() id: string;
   @Output() onSubmitReviewMovie: EventEmitter<PostReview> = new EventEmitter<PostReview>();
   onSubmitReviewBook: EventEmitter<PostReview> = new EventEmitter<PostReview>();
   model = new PostReview();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() { this.model.id = this.id; }
 
   onSubmitReview() {
      switch (this.type) {

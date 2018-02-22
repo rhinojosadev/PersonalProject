@@ -1,0 +1,7 @@
+span(*ngIf="post.username")
+    .post_view
+        h5(class="post_view__username") {{post.username}}
+        ngb-rating(class="post_view__rate"  '[(rate)]'="post.rate" '[readonly]'="true") 
+        p(class="post_view__title") {{post.title}}
+        p {{post.description}}
+        hr
