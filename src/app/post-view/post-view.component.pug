@@ -4,4 +4,7 @@ span(*ngIf="post.username")
         ngb-rating(class="post_view__rate"  '[(rate)]'="post.rate" '[readonly]'="true") 
         p(class="post_view__title") {{post.title}}
         p {{post.description}}
+        .post_view__actions.float-right
+            p Edit /
+            p( '(click)'="onClickDelete()") Delete
         hr

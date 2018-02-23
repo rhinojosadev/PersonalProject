@@ -16,8 +16,14 @@
             outline: none;
         }
     }
-
-    &__username{ 
-
+    
+    &__actions {
+        p {
+            display: inline-block;
+            &:hover {
+                border-bottom: 1px yellow solid;
+                cursor: pointer;
+            }
+        }
     }
 }

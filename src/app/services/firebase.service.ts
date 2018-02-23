@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase  } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FirebaseService {
+
+  userId: string;
 
   constructor(private db: AngularFireDatabase) {}
 
@@ -16,11 +18,11 @@ export class FirebaseService {
   }
 
   selectMovieCommentsById(id: string) {
-    return this.db.list('/moviesComments', ref => ref.orderByChild('id').equalTo(id)).valueChanges();
+    return this.db.list('/moviesComments', ref => ref.orderByChild('id').equalTo(id)).snapshotChanges();
   }
 
   deleteMovieCommentById(id: string) {
-    this.db.list('/moviesComments', ref => ref.orderByChild('id').equalTo(id)).remove();
+    this.moviesDbContext.remove(id);
   }
 
   updateMovieCommentById(id: string, value: string) {

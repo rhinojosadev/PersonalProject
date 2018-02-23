@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
 import { LocalstorageService } from '../services/localstorage.service';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-comment-movies',
@@ -16,7 +18,7 @@ export class CommentMoviesComponent implements OnInit {
   movie: Object;
   newPost: boolean;
   type = 'movie';
-  posts: Object;
+  posts: Observable<any[]>;
   id: string = this.route.snapshot.paramMap.get('id');
 
   constructor(private movieService: MoviesService, private localStorage: LocalstorageService, private route: ActivatedRoute,
@@ -28,8 +30,10 @@ export class CommentMoviesComponent implements OnInit {
   ngOnInit() {
     this.getSingleMovie(this.id);
     this.newPost = false;
-    this.firebaseService.selectMovieCommentsById(this.id)
-                        .subscribe( result => { console.dir(result); this.posts = result; });
+    this.posts = this.firebaseService.selectMovieCommentsById(this.id)
+                        .map(changes => {
+                          return changes.map(c => ({ key: c.payload.key, value: c.payload.val() }));
+                        });
   }
 
   onClickNewPost() {
