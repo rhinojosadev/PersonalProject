@@ -1,31 +1,31 @@
 form(class="post-review" #rateForm="ngForm")
-    h2(class="text-center") Tell us your thoughts about 
-    h5(class="post-review__title text-center") {{title}}
-    p(class="text-center") Vote on a scale of 1-5 (left to right).
-    .text-center
-        ngb-rating(class="post-review_stars" '[(ngModel)]'="model.rate"  name="rate")
+    .form-row
+        .form-group.col-lg-8
+            p(class="post-review__rate text-center") Rate it! 
+            ngb-rating(class="post-review__stars" '[(ngModel)]'="model.rate"  name="rate")
+            span([ngSwitch]="model.rate")
+                span(*ngSwitchCase="1") Poor
+                span(*ngSwitchCase="2") Fair
+                span(*ngSwitchCase="3") Good
+                span(*ngSwitchCase="4") Very Good
+                span(*ngSwitchCase="5") Excellent
     .form-row
         .form-group.col-lg-6
-            label(for="user_name") Name:
             input(type="text" class="form-control" id="user_name"  '[(ngModel)]'="model.username" name="username" placeholder="Enter your name")
         .form-group.col-lg-6
-            label(for="review_title") Review Title:
             input(type="text" class="form-control" id="review_title"  '[(ngModel)]'="model.title" name="title"  placeholder="Enter your review title")
     .form-row
         .form-group.col-lg-12
-            label(for="review_desciption")
-            textarea(maxlength="20000" '[(ngModel)]'="model.description" name="description"  placeholder="Enter your review (optional)" rows="12")
+            textarea(maxlength="20000" '[(ngModel)]'="model.description" name="description"  placeholder="Enter your review (optional)" rows="3")
     .form-row
-        .form-group.col-lg-12
+        .form-group.col-lg-6
             h5(class="text-center") Would you recomend this ? 
-        .form-group.col-lg-12.text-center
+        .form-group.col-lg-6
             .form-check.form-check-inline
                 input(class="form-check-input" type="radio" '[(ngModel)]'="model.isrecommended"  name="recommendOption" id="yes_radio" value="true")
                 label(class="form-check-label" for="yes_radio") Yes
             .form-check.form-check-inline
                 input(class="form-check-input" type="radio" '[(ngModel)]'="model.isrecommended" name="recommendOption" id="no_radio" value="false")
                 label(class="form-check-label" for="no_radio") No
-
-    br
     .text-center
         button(type="submit" class="btn btn-primary" '(click)'="onSubmitReview(); rateForm.reset()") Submit Review

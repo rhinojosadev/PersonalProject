@@ -10,9 +10,19 @@
     }
 
     &__stars {
-        font-size: 1.8em;
+        height: 60px;
+        font-size: 4em;
         color: #E0A53D;
-        margin-bottom: 20px;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__rate {
+        text-transform: uppercase;
+        position: relative;
+        width: 250px;
+        top: 26px;
     }
 
     p {
