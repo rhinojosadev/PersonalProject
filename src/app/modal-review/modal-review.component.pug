@@ -1,0 +1,8 @@
+ng-template(#content let-c="close" let-d="dismiss")
+    .modal-header
+        h4.modal-title.text-center {{titleModal}} Comment
+        button(type="button" class="close" aria-label="Close" '(click)'="d('Cross click')") X
+    .modal-body
+        app-post-review( '(onSubmitReviewMovie)'= 'onSubmitReviewMovieEvent($event)', [type]='type', [initModel]='initialModel')
+
+

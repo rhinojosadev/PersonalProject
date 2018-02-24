@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ModalReviewComponent } from './../modal-review/modal-review.component';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { PostReview } from '../post-review/post-review';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -10,6 +11,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class PostViewComponent implements OnInit {
   @Input() post: PostReview;
   @Input() uniqueId: string;
+  @Input() modal: ModalReviewComponent;
 
   constructor(private firebaseService: FirebaseService) { }
 
@@ -20,6 +22,10 @@ export class PostViewComponent implements OnInit {
     if (window.confirm('Are you sure you want to delete this comment?')) {
       this.firebaseService.deleteMovieCommentById(this.uniqueId);
     }
+  }
+
+  onClickEdit(post: PostReview) {
+    this.modal.openModal(post, this.uniqueId);
   }
 
 }

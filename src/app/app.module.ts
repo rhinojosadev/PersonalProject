@@ -24,6 +24,7 @@ import { PostReviewComponent } from './post-review/post-review.component';
 import { FirebaseService } from './services/firebase.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { PostViewComponent } from './post-view/post-view.component';
+import { ModalReviewComponent } from './modal-review/modal-review.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PostViewComponent } from './post-view/post-view.component';
     CommentMoviesComponent,
     CommentBooksComponent,
     PostReviewComponent,
-    PostViewComponent
+    PostViewComponent,
+    ModalReviewComponent
   ],
   imports: [
     BrowserModule,

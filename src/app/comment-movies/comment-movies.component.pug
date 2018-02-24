@@ -33,7 +33,7 @@
         .row(*ngFor="let viewPost of posts | async")
             .col-lg-3
             .col-lg-9
-               app-post-view([post] = "viewPost.value", [uniqueId] = "viewPost.key")
+               app-post-view([post] = "viewPost.value", [uniqueId] = "viewPost.key", [modal] = 'modalReview')
         .row(*ngIf="!newPost")
             .col-lg-3
             .col-lg-9
@@ -41,4 +41,5 @@
         .row(*ngIf="newPost")
             .col-lg-3
             .col-lg-9
-                app-post-review([title]="movie.Title", [type]="type", [id] ="id" '(onSubmitReviewMovie)'='saveMovieComments($event)')
+             
+app-modal-review( '(onSubmitReviewMovieModal)' = 'saveMovieComments($event)',  '(onEditReviewMovieModal)' = 'editMovieComments($event)', [type]='type'  )

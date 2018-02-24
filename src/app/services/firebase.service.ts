@@ -5,8 +5,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class FirebaseService {
 
-  userId: string;
-
   constructor(private db: AngularFireDatabase) {}
 
   private moviesDbContext = this.db.list('moviesComments');
@@ -26,8 +24,7 @@ export class FirebaseService {
   }
 
   updateMovieCommentById(id: string, value: string) {
-    this.deleteMovieCommentById(id);
-    this.insertMovieComment(value);
+    this.moviesDbContext.update(id, value);
   }
 
   selectBooksCommentById() {
