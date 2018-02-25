@@ -5,11 +5,11 @@
 
     & .card-holder__rate{
         padding-top: 10px;
-        color:#E0A53D;
-
-        i {
-            font-size: 2em;
-            padding-right: 2px;
+        
+        color: #FFC000;
+        font-size: 40px;
+        & :focus {
+            outline: none;
         }
     }
     img {

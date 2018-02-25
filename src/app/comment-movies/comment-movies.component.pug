@@ -31,13 +31,13 @@
             .col-lg-9(*ngIf="isRecommendedAvaliable" class="text-center" )
                 h3 General Reviews
                 ngb-rating(class="comment-movies__general-rate"  '[(rate)]'='generalReviewStars'  '[readonly]'="true") 
-        .row(*ngFor="let viewPost of posts | async")
-            .col-lg-3
-            .col-lg-9
-               app-post-view([post] = "viewPost.value", [uniqueId] = "viewPost.key", [modal] = 'modalReview')
         .row
             .col-lg-3
             .col-lg-9
                 button(class="btn btn-primary" '(click)'= 'onClickNewPost()') Post review
+        .row(*ngFor="let viewPost of posts | async")
+            .col-lg-3
+            .col-lg-9
+               app-post-view([post] = "viewPost.value", [uniqueId] = "viewPost.key", [modal] = 'modalReview')
 
 app-modal-review('(onSubmitReviewMovieModal)' = 'saveMovieComments($event)',  '(onEditReviewMovieModal)' = 'editMovieComments($event)', [type]='type')

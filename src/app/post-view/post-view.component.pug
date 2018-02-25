@@ -1,11 +1,18 @@
 span(*ngIf="post.username")
     .post_view
-        h5(class="post_view__username") {{post.username}}
+        h5(class="post_view__username") {{post.username}} 
+            span([ngSwitch]="post.isrecommended")
+                i(*ngSwitchCase="'true'" class="fa fa-thumbs-up good_movie float-right" aria-hidden="true") 
+                i(*ngSwitchCase="'false'" class="fa fa-thumbs-down bad_movie float-right" aria-hidden="true") 
         ngb-rating(class="post_view__rate"  '[(rate)]'="post.rate" '[readonly]'="true") 
         p(class="post_view__title") {{post.title}}
         p {{post.description}}
         | {{isEdit}}
         .post_view__actions.float-right
-            p('(click)'="onClickEdit(post)") Edit /
-            p('(click)'="onClickDelete()") Delete
+            .post_view__edit.text-center
+                i(class="fa fa-pencil" aria-hidden="true")
+                p('(click)'="onClickEdit(post)") Edit 
+            .post_view__delete.text-center
+                i(class="fa fa-trash" aria-hidden="true")
+                p('(click)'="onClickDelete()") Delete
         hr

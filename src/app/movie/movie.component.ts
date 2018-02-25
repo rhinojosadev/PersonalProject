@@ -10,6 +10,7 @@ import { MoviesService } from '../services/movies.service';
 export class MovieComponent implements OnInit {
 
   movies;
+  stars = '3';
 
   constructor(private service: MoviesService, private localStorage: LocalstorageService) { }
 

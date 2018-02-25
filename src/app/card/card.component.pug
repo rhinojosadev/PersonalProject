@@ -1,8 +1,7 @@
 .card-holder.text-center 
     img(class="rounded" '(click)'="goToCommentSection()" src="{{imageUrl}}" )
     .card-holder__rate
-        each val in [1, 2, 3, 4, 5]
-            i(class="fa fa-star-o fa-3")
+         ngb-rating(  '[(rate)]'='stars' '[readonly]'="true") 
     p {{ title }}
  
 br

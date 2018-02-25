@@ -45,7 +45,7 @@ export class CommentMoviesComponent implements OnInit {
               if (!_.isEmpty(response)) {
                 this.isRecommendedAvaliable = true;
                 const howManyRecommendThis = _.filter(response, ['value.isrecommended', 'true' ]).length;
-                this.percentageRecomendeded = _.floor(100 / (_.floor(response.length / howManyRecommendThis )));
+                this.percentageRecomendeded = (100 / (response.length / howManyRecommendThis ));
                 this.generalReviewStars = (_.floor(_.meanBy(response, 'value.rate')));
               } else {
                 this.isRecommendedAvaliable = false;
