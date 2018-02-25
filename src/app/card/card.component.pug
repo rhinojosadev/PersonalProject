@@ -1,7 +1,7 @@
 .card-holder.text-center 
     img(class="rounded" '(click)'="goToCommentSection()" src="{{imageUrl}}" )
     .card-holder__rate
-         ngb-rating(  '[(rate)]'='stars' '[readonly]'="true") 
+         ngb-rating(  '[(rate)]'='generalReviewStars' '[readonly]'="true") 
     p {{ title }}
  
 br
