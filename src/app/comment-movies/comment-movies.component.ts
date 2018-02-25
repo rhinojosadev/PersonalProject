@@ -19,8 +19,10 @@ import { PostReviewViewModel } from '../post-review/pos-review-vm';
 export class CommentMoviesComponent implements OnInit {
 
   movie: Object;
-  newPost: boolean;
   type = 'movie';
+  generalReviewStars: number;
+  isRecommendedAvaliable: boolean;
+  percentageRecomendeded: number;
   posts: Observable<any[]>;
   id: string = this.route.snapshot.paramMap.get('id');
 
@@ -34,11 +36,21 @@ export class CommentMoviesComponent implements OnInit {
 
   ngOnInit() {
     this.getSingleMovie(this.id);
-    this.newPost = false;
     this.posts = this.firebaseService.selectMovieCommentsById(this.id)
-                        .map(changes => {
-                          return changes.map(c => ({ key: c.payload.key, value: c.payload.val() }));
-                        });
+                                      .map(changes => {
+                                        return changes.map(c => ({ key: c.payload.key, value: c.payload.val() }));
+                                      });
+     this.posts
+            .subscribe(response => {
+              if (!_.isEmpty(response)) {
+                this.isRecommendedAvaliable = true;
+                const howManyRecommendThis = _.filter(response, ['value.isrecommended', 'true' ]).length;
+                this.percentageRecomendeded = _.floor(100 / (_.floor(response.length / howManyRecommendThis )));
+                this.generalReviewStars = (_.floor(_.meanBy(response, 'value.rate')));
+              } else {
+                this.isRecommendedAvaliable = false;
+              }
+          });
   }
 
   onClickNewPost() {

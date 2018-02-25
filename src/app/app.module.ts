@@ -50,9 +50,11 @@ import { ModalReviewComponent } from './modal-review/modal-review.component';
     AngularFireDatabaseModule,
     NgCircleProgressModule.forRoot({
       showInnerStroke: false,
-      showSubtitle: false,
-      showUnits: false,
+      showSubtitle: true,
+      showUnits: true,
       unitsColor: '#fff',
+      subtitle: 'Recommend',
+      subtitleFontSize: '18',
       titleColor: '#fff',
       subtitleColor: '#fff',
       unitsFontSize: '16',
