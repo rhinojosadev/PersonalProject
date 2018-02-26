@@ -1,3 +1,6 @@
+import { LocalstorageService } from './../services/localstorage.service';
+import { ActivatedRoute } from '@angular/router';
+import { FirebaseService } from './../services/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentBooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorageService: LocalstorageService, private route: ActivatedRoute) { }
+  isRecommendedAvaliable = false;
+  selectedBook;
+  id: string = this.route.snapshot.paramMap.get('id');
 
   ngOnInit() {
+    this.selectedBook = this.localStorageService.getBookLocalById(this.id);
   }
 
 }

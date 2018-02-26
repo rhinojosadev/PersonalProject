@@ -40,6 +40,9 @@ export class CardComponent implements OnInit {
                     }
         });
         break;
+        case 'book':
+          console.log('bookHereCardComponent');
+        break;
       }
     }
     goToCommentSection() {

@@ -1,0 +1,23 @@
+.comment-books {
+    color: #fff;
+    margin-top: 80px;
+
+    &__info {
+        margin-top: 40px;
+    }
+
+    h2 {
+        font-weight: 800;
+    }
+
+    &__general-rate{
+        color: #fae906;
+        font-size: 40px;
+        &:focus {
+            outline: none;
+        }
+    }
+    strong {
+        color: #c0e7ea
+    }
+}

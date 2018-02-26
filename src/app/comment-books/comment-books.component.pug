@@ -1,2 +1,37 @@
-p comment-books works!
-
+.comment-books
+    .container  
+        .row
+            .col-lg-3
+                img(src="{{selectedBook[8].elements[0].text}}")
+            .col-lg-9
+                h2 {{selectedBook[5].elements[0].text}} ({{selectedBook[16].elements[0].text}})
+                p([innerHTML]='selectedBook[20].elements[0].text') 
+                .row
+                    .col-lg-6.text-center
+                        span(*ngIf="isRecommendedAvaliable")
+                            circle-progress([percent]="percentageRecomendeded")
+                    .col-lg-6.comment-movies__info
+                        .row
+                            .col-lg-2
+                                strong Author:
+                            .col-lg-10.text-right
+                               p {{selectedBook[21].elements[0].elements[1].elements[0].text}}
+                        .row
+                            .col-lg-4
+                                strong Published Date:
+                            .col-lg-8.text-right  
+                                p {{selectedBook[15].elements[0].text}} / {{selectedBook[17].elements[0].text}} / {{selectedBook[16].elements[0].text}}
+                        .row
+                            .col-lg-4
+                                strong Total Pages:
+                            .col-lg-8.text-right  
+                                p {{selectedBook[11].elements[0].text}}
+        .row
+            .col-lg-3
+            .col-lg-9(*ngIf="isRecommendedAvaliable" class="text-center" )
+                h3 General Reviews
+                ngb-rating(class="comment-books__general-rate"  '[readonly]'="true") 
+        .row
+            .col-lg-3
+            .col-lg-9
+                button(class="btn btn-primary") Post review

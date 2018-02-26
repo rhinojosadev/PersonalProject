@@ -11,6 +11,7 @@ import { LocalstorageService } from '../services/localstorage.service';
 export class BookComponent implements OnInit {
 
   books;
+  type = 'book';
 
   constructor(private service: BookService, private localStorage: LocalstorageService) { }
 
@@ -26,7 +27,8 @@ export class BookComponent implements OnInit {
         .getBooks()
         .subscribe(response => {
           const xml = response.text();
-          this.books = JSON.parse(xml2json(xml));
+          const responseJSON = JSON.parse(xml2json(xml));
+          this.books = responseJSON['elements'][0]['elements'][1]['elements'];
           this.localStorage.insertBooksLocal( JSON.stringify(this.books));
         }, error => {
           console.log('Unexpected error ocurred');

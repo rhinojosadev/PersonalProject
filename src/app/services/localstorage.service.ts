@@ -5,10 +5,6 @@ export class LocalstorageService {
 
   constructor() { }
 
-  insertBooksLocal(value) {
-    localStorage.setItem('books', value);
-  }
-
   insertMoviesLocal(value) {
     localStorage.setItem('movies', value);
   }
@@ -21,12 +17,31 @@ export class LocalstorageService {
     return JSON.parse(localStorage.getItem(id));
   }
 
+  getMoviesLocal() {
+    return JSON.parse(localStorage.getItem('movies'));
+  }
+
+  insertBooksLocal(value) {
+    localStorage.setItem('books', value);
+  }
+
   getBooksLocal() {
    return JSON.parse(localStorage.getItem('books'));
   }
 
-  getMoviesLocal() {
-    return JSON.parse(localStorage.getItem('movies'));
+  getBookLocalById(id) {
+   const books =  JSON.parse(localStorage.getItem('books'));
+   let selectedBook: any;
+   books.forEach(function (value, key) {
+      if (value['elements'][0]['elements'][0]['text'] === id) {
+         selectedBook = value['elements'];
+         return;
+      }
+   });
+   return selectedBook;
+
   }
+
+
 
 }
