@@ -12,6 +12,7 @@ export class PostViewComponent implements OnInit {
   @Input() post: PostReview;
   @Input() uniqueId: string;
   @Input() modal: ModalReviewComponent;
+  @Input() type: string;
 
   constructor(private firebaseService: FirebaseService) { }
 
@@ -20,7 +21,15 @@ export class PostViewComponent implements OnInit {
 
   onClickDelete() {
     if (window.confirm('Are you sure you want to delete this comment?')) {
-      this.firebaseService.deleteMovieCommentById(this.uniqueId);
+
+      switch (this.type) {
+        case 'book':
+          this.firebaseService.deleteBookCommentById(this.uniqueId);
+        break;
+        case 'movie':
+          this.firebaseService.deleteMovieCommentById(this.uniqueId);
+        break;
+      }
     }
   }
 

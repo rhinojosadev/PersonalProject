@@ -44,4 +44,8 @@ export class FirebaseService {
     this.booksDbContext.update(id, value);
   }
 
+  deleteBookCommentById(id: string) {
+    this.booksDbContext.remove(id);
+  }
+
 }
