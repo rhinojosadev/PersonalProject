@@ -7,6 +7,7 @@ import { PostReview } from '../post-review/post-review';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
 import _ = require('lodash');
+import { PostReviewViewModel } from '../post-review/pos-review-vm';
 
 @Component({
   selector: 'app-comment-books',
@@ -58,6 +59,18 @@ export class CommentBooksComponent implements OnInit {
   saveBookComments(model: PostReview) {
     model.id  = this.id;
     this.firebaseService.insertBookComment(JSON.parse(JSON.stringify(model)));
+  }
+
+  editBookComments(model: PostReviewViewModel) {
+    const newModel = new PostReview();
+    newModel.id = model.id;
+    newModel.description = model.description;
+    newModel.isrecommended = model.isrecommended;
+    newModel.rate = model.rate;
+    newModel.title = model.title;
+    newModel.username = model.username;
+
+    this.firebaseService.updateBookCommentById(model.uniqueId, JSON.parse(JSON.stringify(newModel)));
   }
 
   getSingleBook(id) {

@@ -40,4 +40,8 @@ export class FirebaseService {
     return this.db.list('/booksComments', ref => ref.orderByChild('id').equalTo(id)).snapshotChanges();
   }
 
+  updateBookCommentById(id: string, value: string) {
+    this.booksDbContext.update(id, value);
+  }
+
 }
