@@ -36,4 +36,8 @@ export class FirebaseService {
     return this.booksDbContext.push(value);
   }
 
+  selectBookCommentsById(id: string) {
+    return this.db.list('/booksComments', ref => ref.orderByChild('id').equalTo(id)).snapshotChanges();
+  }
+
 }
