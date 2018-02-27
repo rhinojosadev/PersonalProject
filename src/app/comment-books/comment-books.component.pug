@@ -34,4 +34,6 @@
         .row
             .col-lg-3
             .col-lg-9
-                button(class="btn btn-primary") Post review
+                button(class="btn btn-primary" '(click)'= 'onClickNewPost()') Post review
+
+app-modal-review('(onSubmitReviewMovieModal)' = 'saveBookComments($event)',  '(onEditReviewMovieModal)' = 'editBookComments($event)', [type]='type')

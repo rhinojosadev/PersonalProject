@@ -1,7 +1,10 @@
 import { LocalstorageService } from './../services/localstorage.service';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from './../services/firebase.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalReviewComponent } from '../modal-review/modal-review.component';
+import { PostReview } from '../post-review/post-review';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-comment-books',
@@ -10,13 +13,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentBooksComponent implements OnInit {
 
-  constructor(private localStorageService: LocalstorageService, private route: ActivatedRoute) { }
   isRecommendedAvaliable = false;
   selectedBook;
   id: string = this.route.snapshot.paramMap.get('id');
+  type = 'book';
+  @ViewChild(ModalReviewComponent) modalReview: ModalReviewComponent;
+
+  constructor(private localStorageService: LocalstorageService, private route: ActivatedRoute, private firebaseService: FirebaseService,  
+              private rateConfig: NgbRatingConfig) {
+                rateConfig.max = 5;
+              }
 
   ngOnInit() {
     this.selectedBook = this.localStorageService.getBookLocalById(this.id);
+  }
+
+  onClickNewPost() {
+    this.modalReview.openModal();
+  }
+
+  saveBookComments(model: PostReview) {
+    model.id  = this.id;
+    this.firebaseService.insertBookComment(JSON.parse(JSON.stringify(model)));
   }
 
 }

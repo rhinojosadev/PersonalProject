@@ -39,7 +39,6 @@ export class LocalstorageService {
       }
    });
    return selectedBook;
-
   }
 
 
