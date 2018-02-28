@@ -16,3 +16,6 @@ span(*ngIf="post.username")
                 i(class="fa fa-trash" aria-hidden="true")
                 p('(click)'="onClickDelete()") Delete
         hr
+
+
+app-modal-delete( '(answerModal)'='onClickDeleteAnswer($event)')

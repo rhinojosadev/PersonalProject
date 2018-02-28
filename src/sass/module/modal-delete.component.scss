@@ -1,0 +1,18 @@
+.delete-modal {
+    & .modal-dialog {
+        & .modal-content {
+            & .modal-body {
+                background-color: #ff000038;
+               & p { 
+                    color: #000;
+                }
+            
+               & i {
+                    font-size: 3.5em;
+                    color: #dc3545;
+                }
+            }
+        }
+    }
+
+}
