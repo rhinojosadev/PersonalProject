@@ -41,7 +41,16 @@ export class CardComponent implements OnInit {
         });
         break;
         case 'book':
-          console.log('bookHereCardComponent');
+               this.posts =  this.firebasService.selectBookCommentsById(this.id)
+                                          .map(changes => {
+                        return changes.map(c => ({ key: c.payload.key, value: c.payload.val() }));
+                      });
+        this.posts
+                  .subscribe (response => {
+                    if (!_.isEmpty(response)) {
+                      this.generalReviewStars = (_.floor(_.meanBy( response, 'value.rate')));
+                    }
+        });
         break;
       }
     }

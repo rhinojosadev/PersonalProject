@@ -27,11 +27,6 @@ export class FirebaseService {
     this.moviesDbContext.update(id, value);
   }
 
-
-  selectBooksCommentById() {
-    return this.booksDbContext.valueChanges();
-  }
-
   insertBookComment(value: string) {
     return this.booksDbContext.push(value);
   }
