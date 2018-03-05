@@ -1,15 +1,18 @@
-import { TestBed, inject } from '@angular/core/testing';
 
 import { MoviesService } from './movies.service';
 
 describe('MoviesService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [MoviesService]
-    });
-  });
 
-  it('should be created', inject([MoviesService], (service: MoviesService) => {
-    expect(service).toBeTruthy();
-  }));
+    let httpClientSpy: { get: jasmine.Spy};
+    let movieService: MoviesService;
+
+    beforeEach(() => {
+        // Todo: spy on other methods too
+        httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+        movieService = new MoviesService(<any> httpClientSpy);
+      });
+
+    it('Should return a list of movies', () => {
+    });
+
 });

@@ -3,23 +3,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalDeleteComponent } from './modal-delete.component';
 
 describe('ModalDeleteComponent', () => {
-  let component: ModalDeleteComponent;
-  let fixture: ComponentFixture<ModalDeleteComponent>;
+    let component: ModalDeleteComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ModalDeleteComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach( () => {
+        component = new ModalDeleteComponent(null);
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ModalDeleteComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it('#DeleteModal should emit an answer', () => {
+        let value = null;
+        component.answerModal.subscribe(answer => value = answer );
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        component.answer(true);
+
+        expect(value).not.toBeNull();
+    });
 });

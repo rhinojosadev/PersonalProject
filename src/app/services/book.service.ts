@@ -17,8 +17,4 @@ export class BookService {
     return this.http.get(this.url + this.urlGetBook + this.key);
   }
 
-  getBookById() {
-
-  }
-
 }

@@ -1,7 +1,5 @@
-import { LocalstorageService } from './localstorage.service';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import * as _ from 'lodash';
 
 @Injectable()
 export class MoviesService {
@@ -14,7 +12,7 @@ export class MoviesService {
   private urlGetMovies = this.url + this.searchQuery + 'apikey=' + this.key;
   private urlGetMovieById  = this.url + this.searchById;
 
-  constructor(private http: Http, private localStorage: LocalstorageService) { }
+  constructor(private http: Http) { }
 
   getMovies() {
     return this.http.get(this.urlGetMovies);

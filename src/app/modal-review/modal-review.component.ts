@@ -16,6 +16,7 @@ export class ModalReviewComponent implements OnInit {
   @Output() onEditReviewMovieModal: EventEmitter<PostReviewViewModel> = new EventEmitter<PostReviewViewModel>();
   titleModal: string;
   initialModel = new PostReview();
+  initialVm = new PostReviewViewModel();
   initUniqueId: string;
   isEdit: boolean;
   activeModal: NgbModalRef;
@@ -48,19 +49,23 @@ export class ModalReviewComponent implements OnInit {
 
   onSubmitReviewMovieEvent(currentModel: PostReview ) {
     if (this.isEdit) {
-         const newVm = new PostReviewViewModel();
-         newVm.id = currentModel.id;
-         newVm.description = currentModel.description;
-         newVm.isrecommended = currentModel.isrecommended;
-         newVm.rate = currentModel.rate;
-         newVm.title = currentModel.title;
-         newVm.uniqueId = this.initUniqueId;
-         newVm.username = currentModel.username;
-      this.onEditReviewMovieModal.emit(newVm);
+        this.setPostPostReviewViewModel(currentModel);
+        this.onEditReviewMovieModal.emit(this.initialVm);
     } else {
       this.onSubmitReviewMovieModal.emit(currentModel);
     }
     this.activeModal.close();
   }
+
+  setPostPostReviewViewModel(currentModel: PostReview) {
+    this.initialVm.id = currentModel.id;
+    this.initialVm.description = currentModel.description;
+    this.initialVm.isrecommended = currentModel.isrecommended;
+    this.initialVm.rate = currentModel.rate;
+    this.initialVm.title = currentModel.title;
+    this.initialVm.uniqueId = this.initUniqueId;
+    this.initialVm.username = currentModel.username;
+  }
+
 
 }

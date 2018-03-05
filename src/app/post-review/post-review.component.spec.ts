@@ -3,23 +3,29 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostReviewComponent } from './post-review.component';
 
 describe('PostReviewComponent', () => {
-  let component: PostReviewComponent;
-  let fixture: ComponentFixture<PostReviewComponent>;
+    let component: PostReviewComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PostReviewComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(() => {
+        component = new PostReviewComponent();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PostReviewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it('#PostReview should emit a review to movie if its a movie', () => {
+        component.type = 'movie';
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        spyOn(component.onSubmitReviewMovie, 'emit');
+
+        component.onSubmitReview();
+
+        expect(component.onSubmitReviewMovie.emit).toHaveBeenCalled();
+    });
+
+    it('#PostReview should emit a review to book if its a book', () => {
+        component.type = 'book';
+
+        spyOn(component.onSubmitReviewBook, 'emit');
+
+        component.onSubmitReview();
+
+        expect(component.onSubmitReviewBook.emit).toHaveBeenCalled();
+    });
 });
